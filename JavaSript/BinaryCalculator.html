@@ -1,0 +1,52 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BINARY/DECIMAL CONVERTER</title>
+  <script>
+  
+    function deciTobinary()
+    {
+        var Deci = parseInt(document.forms['myform']['deci'].value, 10);
+        var binaRY = parseInt(document.forms['myform']['bin'].value,2);
+        
+        //var ok = true;
+        
+        if ( Deci >= 0)
+        {
+          var DeciMal = (Number(Deci)).toString(2);
+         
+          alert(DeciMal);
+       
+        }
+        else  if (binaRY >= 0)
+        { 
+          var binarY = (Number(binaRY)).toString(10);
+          alert(binarY);
+        }
+        else
+        { 
+          alert("Enter a value");
+        }
+        
+    }
+  </script>
+  
+  
+</head>
+<body>
+    <form method="post" name="myForm" id="myform">
+      <label>Full Name</label><br>
+      <input type="text" placeholder="Firstname Lastname" name="Fullname" id="nam"/><br><br>
+      
+      <label>Decimal To Binary</label><br>
+      <input type="text" placeholder="Decimal figure" name="Decimal" id="deci"/><br><br>
+      
+      <label>Binary To Decimal</label><br>
+      <input type="text" placeholder="Binary number" name="BINARY" id="bin"/><br><br>
+      
+      <input type="submit" value="Submit Query" onclick="deciTobinary()"/>
+    </form>
+ 
+</body>
+</html>

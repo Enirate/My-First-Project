@@ -1,0 +1,58 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ProJaro JavaScript 3</title>
+  <script>   
+
+  
+        function Fibronacci()
+        { 
+            var k = parseInt(document.forms["myForm"]["valu"].value);
+             //alert(Number(k))
+              var m = Number(k);
+              var i;
+              var result = [];
+              
+              result[0] = 0;
+              result[1] = 1;
+                for (var i = 2; i <= m ; i++)
+                {
+                  //result += (i + "<br>");
+                  //answer = result[]
+                  
+                 result[i] = result[i-2] + result[i-1]
+                
+                } 
+       
+             document.getElementById("demo").innerHTML = result[m];
+        }
+    
+    
+    
+    
+  </script>
+     
+      
+      
+
+  
+  
+  </head>
+  <body>
+    
+    <!--p id="demo"></p-->
+    
+   <form id="myForm" name="Form">
+      <label>Find the Fibronacci of: </label><br>
+      <input type="text" placeholder="Enter the value" id="valu" name="value" /><br><br>
+      
+      <div id="demo"></div><br>
+      
+      <input type="submit" id="sub" onclick="Fibronacci(); return false"/>
+    </form>
+    
+    
+    
+  </body>
+</html>

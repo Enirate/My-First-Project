@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<script>
+			function HotelReservation()
+			{
+        
+        var costHot;
+        var seX;
+        
+				
+        var costHotel = ["PentHouse suites is 40,000.00 +VAT." , "PentHouse is 25,000.00 +VAT."];
+        var sexValue = ["Mrs.", "Mr.", ""]
+        
+				
+				var HOTEL =parseInt(document.forms["myForm"]["hotel"].value);
+        var naMe = document.forms["myForm"]["nam"].value;
+        var sEx = parseInt(document.forms["myForm"]["sex"].value);
+            
+            if (Number(sEx) == 1){
+              var sexInd = (Number(sEx)-1);
+              seX = sexValue[sexInd];
+            }
+            else if (Number(sEx) == 2){
+              var sexInd = (Number(sEx)-1);
+              seX = sexValue[sexInd];
+            }
+            else {
+              seX = sexValue[2];
+             }
+            
+            if (hotelReservation(HOTEL) == false)
+            {
+              document.getElementById("display").innerHTML = "No selection made";
+            }
+            
+            if (hotelReservation(HOTEL) == true)
+            {
+              document.getElementById("display").innerHTML = ("Dear, " + seX + "&nbsp" + naMe + ", Reservation of " +costHot);
+            }
+            
+             function hotelReservation(HOTEL){
+              
+              var hotelInd = (Number(HOTEL)-1);
+              costHot = costHotel[hotelInd];
+              
+              if(HOTEL === ""){
+                return false
+                
+              } else {
+                
+                return true
+              }
+            }
+			}
+		</script>
+	</head>
+	<body>
+		<form id="myForm" name="myForm" method="post" action="">
+      <legend> HOTEL RESERVATION SYSTEM</legend><br>
+			<label>Full name</label>
+			<input type="text" id="nam" name="Name" placeholder="Firstname LastName" 
+      style="width:200px; height:30px; color:gray" tabindex="1" required /><br><br>
+      
+      <label>Email</label>
+			<input type="email" id="email" name="Email" placeholder="info@example.com" 
+      style="width:200px; height:30px; color:gray" tabindex="1" required /><br><br>
+      
+      <label>Phone No</label>
+			<input type="text" id="phone" name="Phone" placeholder="Phone No" 
+      style="width:200px; height:30px; color:gray" tabindex="1" required /><br><br>
+      
+      <label>Sex&nbsp 
+          <select data-placeholder="sex" id ="sex" style="width:200px; height:30px; color:gray" tabindex="1">
+            <option value="">Select</option>
+            <option value="1">Female</option>
+            <option value="2">Male</option>
+          </select>
+      </label><br><br>
+      
+      
+      <label>Hotel &nbsp 
+          <select data-placeholder="Hotel" id ="hotel" style="width:200px; height:30px; color:gray" tabindex="1">
+            <option value="">Make your choice</option> 
+            <option value="1">PentHouse Suites</option>
+            <option value="2">PentHouse</option>
+          </select>
+      </label><br><br>
+      
+      <label>Country &nbsp
+        <select data-placeholder="Choose a Country..." id="coun" style="width:200px; height:30px; color:gray" tabindex="1">
+          <option value="">Choose</option> 
+          <option value="Nigeria">Nigeria</option>       
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select></label><br><br>
+        
+			<div id="display"></div><br>
+
+			<input type="submit" value="Submit My booking" onclick="HotelReservation(); return false" style="background-color:rgb(255,215,200); width:200px; height:30px; color:gray"/>
+		</form>
+	</body>
+</html>

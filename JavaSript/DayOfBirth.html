@@ -1,0 +1,41 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ProJaro JavaScript 3</title>
+  <script>
+      function getDayOfBirth()
+      {
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var DAy = parseInt(document.forms["myForm"]["day"].value);
+        var MOnth = parseInt(document.forms["myForm"]["month"].value);
+        var YEar = parseInt(document.forms["myForm"]["year"].value);
+        
+        var MONth = (Number(MOnth) - 1);
+        
+      
+        var d = new Date(Number(YEar), MONth, Number(DAy));
+       
+        document.getElementById("Display").innerHTML = ("The day was <b>" +  days[d.getDay()] + ".</b>");
+      
+      }
+  </script>
+  
+  
+</head>
+<body>
+  <form id="myForm">
+    <label>Day</label><br>
+    <input type= "text" name="Day" id="day" placeholder="Day of Birth"/><br>
+    <label>Month</label><br>
+    <input type= "text" name="Month" id="month" placeholder="Month of Birth"/><br>
+    <label>Year</label><br>
+    <input type= "text" name="Year" id="year" placeholder="Year of Birth"/><br><br>
+    
+    <div id="Display"></div><br><br>
+    
+    <input type="Submit" onclick = "getDayOfBirth(); return false">
+    
+  </form>
+</body>
+</html>

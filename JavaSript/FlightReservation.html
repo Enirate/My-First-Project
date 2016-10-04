@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<script>
+			function FlightReservation()
+			{
+        var costFli ;
+        var seX;
+        
+				var costFlight =["First-Class: 50,000.00 +VAT" , "Economy: 35,000.00 +VAT"];
+        var sexValue = ["Mrs.", "Mr.", ""]
+        
+				var FLIGHT = parseInt(document.forms["myForm"]["flight"].value);
+        var naMe = document.forms["myForm"]["nam"].value;
+        var sEx = parseInt(document.forms["myForm"]["sex"].value);
+        
+        
+             
+            if (Number(sEx) == 1){
+              var sexInd = (Number(sEx)-1);
+              seX = sexValue[sexInd];
+            }
+            else if (Number(sEx) == 2){
+              var sexInd = (Number(sEx)-1);
+              seX = sexValue[sexInd];
+            }
+            else {
+              seX = sexValue[2];
+             }
+
+				
+            if (flightReservation(FLIGHT) == false)
+            {
+              document.getElementById("display").innerHTML = "No selection made";
+            }
+            if (flightReservation(FLIGHT) == true)
+            {
+              document.getElementById("display").innerHTML = ("Dear, " + seX + "&nbsp" + naMe + ", Reservation of " + costFli);
+            }
+            
+            
+            function flightReservation(FLIGHT){
+              
+              var flightInd = (Number(FLIGHT)-1);
+              costFli = costFlight[flightInd];
+              
+              if(FLIGHT === "") {
+                return false
+              }
+                else {
+              
+                return true
+              }
+            }
+            
+     
+			}
+		</script>
+	</head>
+	<body>
+		<form id="myForm" name="myForm" method="post" action="">
+      <legend>AIRLINE RESERVATION SYSTEM</legend><br>
+			<label>Full name</label>
+			<input type="text" id="nam" name="Name" placeholder="Firstname LastName" 
+      style="width:200px; height:30px; color:gray" tabindex="1" required /><br><br>
+      
+      <label>Email</label>
+			<input type="email" id="email" name="Email" placeholder="info@example.com" 
+      style="width:200px; height:30px; color:gray" tabindex="1" required /><br><br>
+      
+      <label>Phone No</label>
+			<input type="text" id="phone" name="Phone" placeholder="Phone No" 
+      style="width:200px; height:30px; color:gray" tabindex="1" required /><br><br>
+      
+      <label>Sex &nbsp;
+          <select data-placeholder="sex" id ="sex" style="width:200px; height:30px; color:gray" tabindex="1">
+            <option value="">Select</option>
+            <option value="1">Female</option>
+            <option value="2">Male</option>
+          </select>
+      </label><br><br>
+      
+      <label>Flight &nbsp; 
+          <select data-placeholder="Flight" id ="flight" style="width:200px; height:30px; color:gray" tabindex="1">
+            <option value="">Make your choice</option> 
+            <option value="1">First-Class</option>
+            <option value="2">Economy</option>
+          </select>
+      </label><br><br>
+      
+      <label>Country &nbsp;
+        <select data-placeholder="Choose a Country..." id="coun" style="width:200px; height:30px; color:gray" tabindex="1">
+          <option value="">Choose</option> 
+          <option value="Nigeria">Nigeria</option> 
+          >Honduras</option> 
+          <option value="Hong Kong">Hong Kong</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select></label><br><br>
+        
+			<div id="display"></div><br>
+
+			<input type="submit" value="Submit My booking" onclick="FlightReservation(); return false" style="background-color:rgb(255,215,200); width:200px; height:30px; color:gray"/>
+		</form>
+	</body>
+</html>
